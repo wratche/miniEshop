@@ -1,0 +1,86 @@
+{
+  "name": "wratche/mini-eshop",
+  "type": "project",
+  "description": "",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "wratche",
+      "email": "mareksmid95@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "7.4.*",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "doctrine/orm": "^2.7",
+    "fzaninotto/faker": "^1.9",
+    "hirak/prestissimo": "^0.3.10",
+    "latte/latte": "^2.5",
+    "nette/application": "^3.0",
+    "nette/bootstrap": "^3.0",
+    "nette/caching": "^3.0",
+    "nette/database": "^3.0",
+    "nette/di": "^3.0",
+    "nette/finder": "^2.5",
+    "nette/forms": "^3.0",
+    "nette/http": "^3.0",
+    "nette/mail": "^3.0",
+    "nette/robot-loader": "^3.0",
+    "nette/security": "^3.0",
+    "nette/utils": "^3.0",
+    "sentry/sdk": "2.1.0",
+    "symfony/yaml": "^5.0",
+    "tracy/tracy": "^2.6"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.5",
+    "phpstan/extension-installer": "1.0.*",
+    "phpstan/phpstan": "^0.12.19",
+    "phpstan/phpstan-phpunit": "0.12.*",
+    "phpstan/phpstan-strict-rules": "0.12.*",
+    "phpunit/php-code-coverage": "^8.0",
+    "phpunit/phpunit": "^9.1",
+    "sllh/composer-versions-check": "^2.0",
+    "symfony/console": "^5.0",
+    "symplify/easy-coding-standard": "7.3.*"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.4"
+    },
+    "sllh-composer-versions-check": {
+      "show-links": true
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Wratche\\App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Wratche\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "scripts": {
+    "ci": [
+      "@ecs",
+      "@phpstan",
+      "@test"
+    ],
+    "ecs": "vendor/bin/ecs check src tests",
+    "ecsFix": "vendor/bin/ecs check src tests --fix",
+    "phpstan": "vendor/bin/phpstan analyse src tests -l max",
+    "test": "vendor/bin/phpunit tests",
+    "test-coverage": "vendor/bin/phpunit --prepend build/xdebug-filter.php --coverage-html build/coverage-report",
+    "test-coverage-ci": "vendor/bin/phpunit --coverage-clover=coverage.xml"
+  },
+  "scripts-descriptions": {
+    "ecs": "Runs the Easy codding standards defined in ecs.yaml "
+  }
+}
