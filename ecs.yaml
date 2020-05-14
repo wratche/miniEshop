@@ -1,0 +1,46 @@
+#easy-coding-standard.yml
+services:
+  #stricts fixers
+  PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: ~
+  PhpCsFixer\Fixer\Strict\StrictComparisonFixer: ~
+  PhpCsFixer\Fixer\Strict\StrictParamFixer: ~
+
+  #arrays
+  SlevomatCodingStandard\Sniffs\Arrays\SingleLineArrayWhitespaceSniff: ~
+  SlevomatCodingStandard\Sniffs\Arrays\TrailingArrayCommaSniff: ~
+  SlevomatCodingStandard\Sniffs\Arrays\DisallowImplicitArrayCreationSniff: ~
+
+
+  SlevomatCodingStandard\Sniffs\Exceptions\DeadCatchSniff: ~
+
+  # NOT ALLOWED
+  SlevomatCodingStandard\Sniffs\Operators\NegationOperatorSpacingSniff: ~
+
+  #white space
+  SlevomatCodingStandard\Sniffs\Whitespaces\DuplicateSpacesSniff: ~
+  PhpCsFixer\Fixer\Whitespace\LineEndingFixer: ~
+  PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer: ~
+  PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer: ~
+
+[
+    'native_function_invocation' => [
+        'exclude' => [],
+        'opcache-only' => true,
+    ]
+]
+
+
+parameters:
+  paths:
+    - 'Domain'
+    - 'app'
+    - 'tests'
+  sets:
+    - 'clean-code'
+    - 'psr12'
+    - 'php71'
+    - 'docblock'
+    - 'array'
+    - 'comments'
+    - 'strict'
+    - 'control-structures'

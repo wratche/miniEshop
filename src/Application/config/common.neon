@@ -1,0 +1,22 @@
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+	    *: ['Wratche\App\Application\FrontendModule', '*', '*\*Presenter']
+
+
+session:
+	expiration: 14 days
+
+
+security:
+	users:
+		admin: secret  # user 'admin', password 'secret'
+
+
+services:
+	router: Wratche\App\Application\Router\RouterFactory::createRouter
+	entityManager: Wratche\App\Infrastructure\Database\EntityManagerService::getService()
+	productRepository: Wratche\App\Infrastructure\Database\Repositories\ProductRepository(@entityManager)
